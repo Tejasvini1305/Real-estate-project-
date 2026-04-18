@@ -11,6 +11,7 @@ A responsive and modern real estate website UI that allows users to browse prope
 ❤️ Add to favorites (UI functionality)
 📱 Fully responsive design (mobile + desktop)
 🎨 Clean and modern UI/UX
+
 🛠️ Tech Stack
 React.js
 HTML5

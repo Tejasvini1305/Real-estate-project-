@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { list } from "../../data/Data";
 
 const RecentCard = ({ favorites, setFavorites }) => {

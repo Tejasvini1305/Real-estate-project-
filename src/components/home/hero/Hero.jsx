@@ -10,6 +10,27 @@ const Hero = () => {
   const [results, setResults] = useState([]);
   const [searched, setSearched] = useState(false);
 
+const cities = [
+  "Mumbai",
+  "Navi Mumbai",
+  "Pune",
+  "Nagpur",
+  "Nashik",
+  "Thane",
+  "Panvel",
+  "Kharghar",
+  "Vashi",
+  "Nerul",
+  "Belapur",
+];
+
+const filteredCities =
+  location === ""
+    ? []
+    : cities.filter((city) =>
+        city.toLowerCase().includes(location.toLowerCase())
+      );
+
   const handleSearch = () => {
     setSearched(true);
 
@@ -49,15 +70,30 @@ const Hero = () => {
             className="flex"
             onSubmit={(e) => e.preventDefault()}
           >
-            <div className="box">
-              <span>City/Street</span>
-              <input
-                type="text"
-                placeholder="Location"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-              />
-            </div>
+            <div className="box city-box">
+  <span>City/Street</span>
+
+  <input
+    type="text"
+    placeholder="Location"
+    value={location}
+    onChange={(e) => setLocation(e.target.value)}
+  />
+
+  {filteredCities.length > 0 && (
+    <div className="suggestions">
+      {filteredCities.map((city) => (
+        <div
+          key={city}
+          className="suggestion-item"
+          onClick={() => setLocation(city)}
+        >
+          {city}
+        </div>
+      ))}
+    </div>
+  )}
+</div>
 
             <div className="box">
               <span>Property Type</span>
